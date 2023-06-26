@@ -23,6 +23,12 @@ export default function App() {
         </ol>
       </div>
     );
+    <p>
+      <strong>
+        Created by{" "}
+        <a href="https://github.com/ButaYulia/ReactWeek4">Buta Yuliia</a>
+      </strong>
+    </p>;
   }
 
   function handleSubmit(event) {
