@@ -23,12 +23,6 @@ export default function App() {
         </ol>
       </div>
     );
-    <p>
-      <strong>
-        Created by{" "}
-        <a href="https://github.com/ButaYulia/ReactWeek4">Buta Yuliia</a>
-      </strong>
-    </p>;
   }
 
   function handleSubmit(event) {
@@ -55,6 +49,12 @@ export default function App() {
         </form>
         <h2>{forecast}</h2>
       </div>
+      <p>
+        <strong>
+          Created by
+          <a href="https://github.com/ButaYulia/ReactWeek4"> Buta Yuliia</a>
+        </strong>
+      </p>
     </div>
   );
 }
