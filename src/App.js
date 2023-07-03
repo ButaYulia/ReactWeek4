@@ -52,6 +52,10 @@ export default function App() {
           </div>
           <div className="square-second">
             <h1>Weather Search Engine</h1>
+            <img
+              src="https://media.tenor.com/RVvnVPK-6dcAAAAC/reload-cat.gif"
+              style={{ widht: "300px", height: "300px" }}
+            />
             <p>
               Created by
               <a href="https://github.com/ButaYulia/ReactWeek4"> Buta Yuliia</a>

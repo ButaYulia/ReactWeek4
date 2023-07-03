@@ -12,8 +12,15 @@ li {
   list-style: none;
 }
 
+h1 {
+  text-align: center;
+  width: 100%;
+}
+
 p {
   position: absolute;
+  text-align: center;
+  width: 100%;
   bottom: 0;
   color: #fff;
   font-size: 20px;
