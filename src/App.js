@@ -7,21 +7,20 @@ export default function App() {
   const [forecast, setForecast] = useState("");
 
   function displayWeather(response) {
+    console.log(response);
     setForecast(
-      <div>
-        <ol>
-          <li>🌡️ Temperature: {Math.round(response.data.main.temp)}°C</li>
-          <li>📙 Description: {response.data.weather[0].description}</li>
-          <li>💧 Humidity: {response.data.main.humidity}%</li>
-          <li>🌬️ Wind: {Math.round(response.data.wind.speed)}km/h</li>
-          <li>
-            <img
-              src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`}
-              alt={response.data.weather[0].description}
-            />
-          </li>
-        </ol>
-      </div>
+      <ol>
+        <li>🌡️ Temperature: {Math.round(response.data.main.temp)}°C</li>
+        <li>📙 Description: {response.data.weather[0].description}</li>
+        <li>💧 Humidity: {response.data.main.humidity}%</li>
+        <li>🌬️ Wind: {Math.round(response.data.wind.speed)}km/h</li>
+        <li>
+          <img
+            src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`}
+            alt={response.data.weather[0].description}
+          />
+        </li>
+      </ol>
     );
   }
 
@@ -37,24 +36,29 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Weather Search Engine</h1>
       <div className="CitySearch">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            placeholder="Enter a city"
-            onChange={updateCity}
-          />
-          <input type="submit" value="search" />
-        </form>
-        <h2>{forecast}</h2>
+        <div className="square-main">
+          <div className="square-first">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="Enter a city"
+                onChange={updateCity}
+              />
+              <input type="submit" value="search" />
+            </form>
+            <img src="https://media.tenor.com/lUIQnRFbpscAAAAi/loading.gif" />
+            {forecast}
+          </div>
+          <div className="square-second">
+            <h1>Weather Search Engine</h1>
+            <p>
+              Created by
+              <a href="https://github.com/ButaYulia/ReactWeek4"> Buta Yuliia</a>
+            </p>
+          </div>
+        </div>
       </div>
-      <p>
-        <strong>
-          Created by
-          <a href="https://github.com/ButaYulia/ReactWeek4"> Buta Yuliia</a>
-        </strong>
-      </p>
     </div>
   );
 }
