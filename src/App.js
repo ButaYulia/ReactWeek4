@@ -5,21 +5,28 @@ import "./styles.css";
 export default function App() {
   const [city, setCity] = useState("");
   const [forecast, setForecast] = useState("");
+  const [loader, setLoader] = useState(true);
 
   function displayWeather(response) {
     console.log(response);
+    setLoader(false);
     setForecast(
       <ol>
-        <li>🌡️ Temperature: {Math.round(response.data.main.temp)}°C</li>
-        <li>📙 Description: {response.data.weather[0].description}</li>
-        <li>💧 Humidity: {response.data.main.humidity}%</li>
-        <li>🌬️ Wind: {Math.round(response.data.wind.speed)}km/h</li>
         <li>
+          ⏰ Time & Date:
+          {` ${new Date().getDay()}/7 of a Week, ${new Date().getHours()}:${new Date().getMinutes()}`}
+        </li>
+        <li>🏙️ City: {response.data.name} </li>
+        <li>🌡️ Temperature: {Math.round(response.data.main.temp)}°C</li>
+        <li className="weather">
+          <span>📙 Description: {response.data.weather[0].description} </span>
           <img
             src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`}
             alt={response.data.weather[0].description}
           />
         </li>
+        <li>💧 Humidity: {response.data.main.humidity}%</li>
+        <li>🌬️ Wind: {Math.round(response.data.wind.speed)}km/h</li>
       </ol>
     );
   }
@@ -33,12 +40,19 @@ export default function App() {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
+  function useLoader() {
+    if (loader === true) {
+      return (
+        <img src="https://media.tenor.com/nWnUEov7yIoAAAAC/crying-cat.gif" />
+      );
+    }
+  }
   return (
     <div className="App">
       <div className="CitySearch">
         <div className="square-main">
           <div className="square-first">
+            <h1>In which city you wanna know weather?</h1>
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
@@ -47,7 +61,7 @@ export default function App() {
               />
               <input type="submit" value="search" />
             </form>
-            <img src="https://media.tenor.com/lUIQnRFbpscAAAAi/loading.gif" />
+            {useLoader()}
             {forecast}
           </div>
           <div className="square-second">

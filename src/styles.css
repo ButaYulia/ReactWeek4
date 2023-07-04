@@ -10,6 +10,8 @@
 
 li {
   list-style: none;
+  display: flex;
+  margin-bottom: 25px;
 }
 
 h1 {
@@ -37,14 +39,12 @@ p {
   width: 1440px;
   height: 1024px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .square-first {
+  flex: 1;
   text-align: left;
-  width: 493px;
-  height: 666px;
-  flex-shrink: 0;
   border-radius: 30px;
   color: #fff;
   font-size: 30px;
@@ -61,8 +61,8 @@ p {
 }
 
 .square-second {
-  width: 944px;
-  height: 623px;
+  align-items: stretch;
+  flex: 1;
   flex-shrink: 0;
   border-radius: 25px;
   background: #222831;
@@ -85,5 +85,16 @@ img {
   display: flex;
   margin: 0 auto;
   justify-content: center;
-  padding: 50px;
+}
+
+input {
+  font-size: 40px;
+}
+
+.weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: -15px;
 }
