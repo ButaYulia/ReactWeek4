@@ -58,7 +58,7 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (city == "") {
+    if (city === "") {
       alert("Please, enter your city!");
       return false;
     }
