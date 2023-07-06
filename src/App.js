@@ -6,9 +6,28 @@ export default function App() {
   const [city, setCity] = useState("");
   const [forecast, setForecast] = useState("");
   const [loader, setLoader] = useState(true);
+  const [array, setArray] = useState([]);
+
+  function loadForcast(latitude, longitude) {
+    let apiKey = "4c3ab30f0419b703b56ofe9631t0a52a";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(function (response) {
+      console.log(response);
+      setArray(
+        response.data.daily.map(function (day, key) {
+          return (
+            <div key={key}>
+              {`${day.condition.description}, ${day.temperature.day}, ${day.temperature.minimum}. ${day.wind.speed}`}
+            </div>
+          );
+        })
+      );
+    });
+  }
 
   function displayWeather(response) {
     console.log(response);
+    loadForcast(response.data.coord.lat, response.data.coord.lon);
     setLoader(false);
     setForecast(
       <ol>
@@ -66,6 +85,7 @@ export default function App() {
           </div>
           <div className="square-second">
             <h1>Weather Search Engine</h1>
+            {array}
             <img
               src="https://media.tenor.com/RVvnVPK-6dcAAAAC/reload-cat.gif"
               style={{ widht: "300px", height: "300px" }}
