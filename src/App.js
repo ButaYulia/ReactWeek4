@@ -62,7 +62,10 @@ export default function App() {
   function useLoader() {
     if (loader === true) {
       return (
-        <img src="https://media.tenor.com/nWnUEov7yIoAAAAC/crying-cat.gif" />
+        <img
+          alt="purrito"
+          src="https://media.tenor.com/nWnUEov7yIoAAAAC/crying-cat.gif"
+        />
       );
     }
   }
@@ -87,6 +90,7 @@ export default function App() {
             <h1>Weather Search Engine</h1>
             {array}
             <img
+              alt="cat"
               src="https://media.tenor.com/RVvnVPK-6dcAAAAC/reload-cat.gif"
               style={{ widht: "300px", height: "300px" }}
             />
