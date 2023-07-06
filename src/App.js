@@ -8,7 +8,7 @@ export default function App() {
   const [loader, setLoader] = useState(true);
   const [secLoader, setsecLoader] = useState(true);
   const [array, setArray] = useState([]);
-  const [units, setUnits] = useState("metric");
+  const [units /*setUnits*/] = useState("metric");
 
   function loadForcast(latitude, longitude) {
     let apiKey = "4c3ab30f0419b703b56ofe9631t0a52a";
